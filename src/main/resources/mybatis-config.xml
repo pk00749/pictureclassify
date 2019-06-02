@@ -7,18 +7,18 @@
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true" />
     </settings>
-    
+
     <typeAliases>
         <!--  JavaBean类型自动映射扫描包配置,设置扫描位置 -->
-        <package name="com.brok1n.web.java.springmvcdemo1.bean"/>
+        <!--<package name="com.brok1n.web.java.springmvcdemo1.bean"/>-->
         <!-- 设置Bean别名 -->
-        <!--<typeAlias type="com.brok1n.web.java.springmvcdemo1.bean.User" alias="User"  />-->
+        <typeAlias type="com.warcraftyork.pictureclassify.bean.DBInfo" alias="DBInfo"  />
     </typeAliases>
 
     <!-- typeHandlers 类型处理器-->
-    <typeHandlers>
-        <typeHandler handler=""/>
-    </typeHandlers>
+    <!--<typeHandlers>-->
+        <!--<typeHandler handler=""/>-->
+    <!--</typeHandlers>-->
 
     <!-- 设置当前环境 -->
     <environments default="development">
@@ -47,6 +47,6 @@
 
     <!-- 映射文件路径 -->
     <mappers>
-        <mapper resource="com/warcraftyork/pictureclassify/mapper/StudentMapper.xml" />
+        <mapper resource="mybatisMapper/TestMapper.xml" />
     </mappers>
 </configuration>

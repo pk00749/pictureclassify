@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warcraftyork.pictureclassify.mapper.TestMapper">
+
+    <select id="getDBInfo" resultMap="DBInfoResultMap">
+        select '1' as db, '2' as host, '3' as user from dual
+    </select>
+
+    <resultMap id="DBInfoResultMap" type="com.warcraftyork.pictureclassify.bean.DBInfo">
+        <result column="db" property="db"  jdbcType="VARCHAR"/>
+        <result column="host" property="host" jdbcType="VARCHAR"/>
+        <result column="user" property="user" jdbcType="VARCHAR"/>
+    </resultMap>
+
+</mapper>
