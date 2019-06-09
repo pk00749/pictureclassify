@@ -4,7 +4,7 @@
 <mapper namespace="com.warcraftyork.pictureclassify.mapper.TestMapper">
 
     <select id="getDBInfo" resultMap="DBInfoResultMap">
-        select '1' as db, '2' as host, '3' as user from dual
+        select host as host, db as db, user as user from db where user='york'
     </select>
 
     <resultMap id="DBInfoResultMap" type="com.warcraftyork.pictureclassify.bean.DBInfo">

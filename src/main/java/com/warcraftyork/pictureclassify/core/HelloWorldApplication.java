@@ -19,17 +19,17 @@ public class HelloWorldApplication {
     public String sayHello(String name){
         SqlSessionFactory factory = DbUtils.obtionSqlSessionFactory();
         SqlSession sqlSession = factory.openSession();
+        TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
+        DBInfo info = testMapper.getDBInfo();
         try {
-            TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
-            DBInfo info = testMapper.getDBInfo();
-            System.out.println(info.getDb());
+            System.out.println(info.getHost() + " " + info.getDb() + " " + info.getUser());
         } catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
         } finally {
             sqlSession.close();
         }
-        return "Hello, " + name;
+        return "Hello, " + info.getHost() + " " + info.getDb() + " " + info.getUser();
     }
 
     public static void main(String[] args){
