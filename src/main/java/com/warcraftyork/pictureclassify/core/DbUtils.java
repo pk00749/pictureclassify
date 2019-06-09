@@ -10,18 +10,18 @@ import java.io.InputStream;
 public class DbUtils {
     private static volatile SqlSessionFactory sqlSessionFactory;
 
-    public static SqlSessionFactory obtionSqlSessionFactory() {
+    public static SqlSessionFactory getSqlSessionFactory() {
         if( sqlSessionFactory == null ) {
             synchronized (DbUtils.class) {
                 if(sqlSessionFactory == null ) {
-                    sqlSessionFactory = getSqlSessionFactory();
+                    sqlSessionFactory = setSqlSessionFactory();
                 }
             }
         }
         return sqlSessionFactory;
     }
 
-    private static SqlSessionFactory getSqlSessionFactory()
+    private static SqlSessionFactory setSqlSessionFactory()
     {
         String resource = "mybatis-config.xml";
         try {

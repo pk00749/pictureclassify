@@ -17,7 +17,7 @@ public class HelloWorldApplication {
     @RequestMapping(value = "/sayHello")
     @ResponseBody
     public String sayHello(String name){
-        SqlSessionFactory factory = DbUtils.obtionSqlSessionFactory();
+        SqlSessionFactory factory = DbUtils.getSqlSessionFactory();
         SqlSession sqlSession = factory.openSession();
         TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
         DBInfo info = testMapper.getDBInfo();
