@@ -17,10 +17,14 @@ public class HelloWorldApplication {
     @RequestMapping(value = "/sayHello")
     @ResponseBody
     public String sayHello(String name){
+        if(name == null){
+            return "No Name to Select";
+        }
         SqlSessionFactory factory = DbUtils.getSqlSessionFactory();
         SqlSession sqlSession = factory.openSession();
         TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
-        DBInfo info = testMapper.getDBInfo();
+        DBInfo info = testMapper.getDBInfo(name);
+
         try {
             System.out.println(info.getHost() + " " + info.getDb() + " " + info.getUser());
         } catch (Exception e) {
